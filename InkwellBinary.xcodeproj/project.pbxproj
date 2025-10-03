@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		C0B98FDF2E9080F400C5B367 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B98FDE2E9080E100C5B367 /* SettingsView.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		C0D5B80A2E8F3DE70090010D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -24,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C0B98FDE2E9080E100C5B367 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		C0D5B7FA2E8F3DE60090010D /* InkwellBinary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InkwellBinary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0D5B8092E8F3DE70090010D /* InkwellBinaryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InkwellBinaryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0D5B8132E8F3DE70090010D /* InkwellBinaryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InkwellBinaryUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,6 +80,7 @@
 		C0D5B7F12E8F3DE60090010D = {
 			isa = PBXGroup;
 			children = (
+				C0B98FDE2E9080E100C5B367 /* SettingsView.swift */,
 				C0D5B7FC2E8F3DE60090010D /* InkwellBinary */,
 				C0D5B80C2E8F3DE70090010D /* InkwellBinaryTests */,
 				C0D5B8162E8F3DE70090010D /* InkwellBinaryUITests */,
@@ -236,6 +242,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0B98FDF2E9080F400C5B367 /* SettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
