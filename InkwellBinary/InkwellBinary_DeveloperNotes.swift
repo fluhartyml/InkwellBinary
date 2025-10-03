@@ -65,7 +65,7 @@ Rules & Guidance for ChatGPT/Claude (Persistent Memory)
 - This file serves as continuity between chat sessions since AI assistants don't remember previous conversations.
 - AI assistant will notify the user when it is appropriate to clean the build folder and rebuild for testing and evaluation. After a successful build, assistant will instruct user to push the code to GitHub to create a clean rollback point. This ensures reliable recovery from build errors and minimizes loss of working build states.
 
-- When the user instructs the AI to "read these developer notes", the AI must also reread all project files and become familiar with their contents to maximize context and minimize missed issues. This also ensures that after any rollback to a previous state in the project, the assistant will be working with the current code and both user and assistant will be fully aligned on the latest project state.
+- When the user instructs the AI to "read these developer notes" or "read this file", the AI must automatically scan and reread all project files and become familiar with their contents to maximize context and minimize missed issues. The assistant must clearly indicate in the chat when a project scan or developer notes update is performed, so the user can always see when the project context has been refreshed or the notes have been updated. This also ensures that after any rollback to a previous state in the project, the assistant will be working with the current code and both user and assistant will be fully aligned on the latest project state.
 
 GitHub & Repository Policy
 - GitHub serves ONLY as backup and sync service between multiple development machines
@@ -80,6 +80,7 @@ GitHub & Repository Policy
 ====================================================
 Project Status & Chat Summary
 ====================================================
+ - [2025 OCT 03 1510] (ChatGPT) Full developer notes and project files scanned per workflow. All rules for assistant behavior, file operations, and continuity reaffirmed. Current context: No code changes since last scan. Awaiting next user instruction, ready to log future actions and maintain project summary for crash recovery.
  - [2025 SEP 28 0931] (MLF) New timestamp format requirement: Use "2025 SEP 28 0931" format. Log tasks before conducting them to maintain crash recovery continuity.
    
 - [2025-09-27 11:12] (MF) Communication preference reaffirmed: keep responses TL;DR concise (1–2 short paragraphs), use single‑action step‑by‑step with pauses for screenshots, avoid verbosity.
@@ -112,9 +113,8 @@ Project Status & Chat Summary
   - Conflict resolution: Use Xcode's merge tool; build/tests should pass before pushing.
 - [2025-09-26 18:58] (MF) Milestone: Persistent memory working across new chat sessions; assistant recognized context without retraining.
 - [2025-09-26 18:50] (MF) Author tag convention: assistant uses (MF); I may write my full name in content as desired.
- - [2025-09-26 14:00] (Claude) Added critical workflow rules: AI does all coding/heavy lifting, user does minimal Xcode actions only, screenshot methodology.
 - [2025-09-26 13:55] (Claude) Created developer notes file and established persistent memory system for InkwellBinary project.
- 
+
 // Add new notes above this line. Keep newest entries at the top for quick scanning.
 */
 
@@ -125,6 +125,8 @@ Project Status & Chat Summary
 ====================================================
 Developer Notes Log
 ====================================================
+- [2025 OCT 03 1532] (MLF/ChatGPT) WORKFLOW UPDATE: After cleaning the build folder and successfully rebuilding and evaluating with the assistant, user must push a rollback point with git if evaluation is positive. This creates a reliable recovery point and aligns with project continuity policies.
+- [2025 OCT 03 1525] (ChatGPT) POLICY REINFORCEMENT: After every code change, assistant must explicitly notify user it is appropriate to clean the build folder and rebuild for evaluation and bug recovery, per workflow rules. This prevents falling out of compliance and maintains project reliability across sessions.
 - [2025 SEP 28 1140] (MLF/Claude) WORKFLOW VIOLATION: Claude created more numbered duplicates (JournalEntry 2.swift) despite new rule. MLF correctly pointed out: should have used str_replace to completely replace existing file content (Cmd+A equivalent), not create new files. REINFORCED RULE: Always use str_replace to replace entire file contents when "cleaning" files.
 - [2025 SEP 28 1135] (MLF/Claude) CRITICAL WORKFLOW RULE ADDED: AI assistants CANNOT delete files in Xcode - only replace content. When AI tries to "create" an existing file, Xcode generates numbered duplicates (ContentView 2.swift, etc.) causing ambiguous type errors. NEW RULE: AI must either 1) Only replace existing file content with str_replace, OR 2) Pause and prompt user to manually delete file in Xcode, take screenshot confirmation, then proceed with file creation.
 
@@ -166,7 +168,7 @@ Developer Notes Log
 */
 
 
- 
+
 
 
 
