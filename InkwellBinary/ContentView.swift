@@ -12,15 +12,30 @@ struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var items: [Item]
     
-    @State private var selectedItem: Item.ID?
-    @State private var selectedText: String = ""
+    @State private var editableText: String = "Tap here to type"
 
     var body: some View {
         NavigationSplitView {
-            List(items, selection: $selectedItem) { item in
-                NavigationLink(value: item.id) {
-                    Text(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))
+            List {
+                ForEach(items) { item in
+                    NavigationLink {
+                        // Detail view with visible, tappable TextEditor
+                        VStack {
+                            Text("Item at \(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))")
+                                .padding()
+                            
+                            TextEditor(text: $editableText)
+                                .padding(8)
+                                .background(Color.yellow.opacity(0.3))
+                                .cornerRadius(8)
+                                .frame(minHeight: 200)
+                                .padding()
+                        }
+                    } label: {
+                        Text(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))
+                    }
                 }
+                .onDelete(perform: deleteItems)
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
@@ -33,23 +48,7 @@ struct ContentView: View {
                 }
             }
         } detail: {
-            // This demo TextEditor uses a temporary @State variable and does not persist text.
-            // For persistent editing, bind to a property on Item and save changes.
-            // Wrapping the TextEditor in a ZStack with a subtle border and a placeholder behind the editor
-            // helps users discover the editor interface.
-            // Remove this placeholder logic when binding to actual content.
-            ZStack(alignment: .topLeading) {
-                if selectedText.isEmpty {
-                    Text("Tap to edit...")
-                        .foregroundColor(.secondary)
-                        .padding(EdgeInsets(top: 8, leading: 5, bottom: 0, trailing: 0))
-                }
-                TextEditor(text: $selectedText)
-                    .background(Color(.secondarySystemBackground))
-            }
-            .border(Color.secondary, width: 1)
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .ignoresSafeArea()
+            Text("Select an item")
         }
     }
 
