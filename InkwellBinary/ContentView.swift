@@ -55,6 +55,7 @@ struct ContentView: View {
         return formatter.string(from: currentTime)
     }
 }
+
 struct SettingsView: View {
     @Binding var isPresented: Bool
     
@@ -79,6 +80,7 @@ struct SettingsView: View {
         }
     }
 }
+
 #Preview {
     ContentView()
 }
