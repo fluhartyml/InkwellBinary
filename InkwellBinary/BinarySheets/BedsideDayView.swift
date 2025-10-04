@@ -1,17 +1,15 @@
 //
-//  ContentView.swift
+//  BedsideDayView.swift
 //  InkwellBinary
 //
-//  Created by Michael Fluharty on 10/2/25.
+//  Created by Michael Fluharty on 10/3/25.
 //
 
 import SwiftUI
 import Combine
 
-struct ContentView: View {
+struct BedsideDayView: View {
     @State private var currentTime = Date()
-    @State private var showSettings = false
-    
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     var body: some View {
@@ -21,31 +19,15 @@ struct ContentView: View {
                     .ignoresSafeArea()
                 
                 Text(timeString)
-                    .font(.system(size: 1000, weight: .thin, design: .monospaced))
+                    .font(.system(size: 1000, weight: .bold, design: .monospaced))
                     .minimumScaleFactor(0.01)
                     .lineLimit(1)
                     .foregroundColor(.white)
                     .frame(width: geometry.size.width * 0.9)
-                
-                VStack {
-                    HStack {
-                        Spacer()
-                        Button(action: { showSettings = true }) {
-                            Image(systemName: "gearshape.fill")
-                                .font(.system(size: 30))
-                                .foregroundColor(.white.opacity(0.6))
-                                .padding()
-                        }
-                    }
-                    Spacer()
-                }
             }
         }
         .onReceive(timer) { input in
             currentTime = input
-        }
-        .sheet(isPresented: $showSettings) {
-            SettingsView(isPresented: $showSettings)
         }
     }
     
@@ -57,5 +39,5 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+    BedsideDayView()
 }
